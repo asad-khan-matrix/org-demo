@@ -9,3 +9,9 @@ jobs:
       - uses: actions/checkout@v4.2.2
       - name: run a sample action
         run: echo hello world
+
+      - name: upload artifact
+      - uses: actions/upload-artifact@v4.6.0
+        with:
+          name: my-files
+          path: ${{github.workspace}}
