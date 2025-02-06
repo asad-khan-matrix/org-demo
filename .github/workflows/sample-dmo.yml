@@ -1,0 +1,11 @@
+name: Simple-demo
+on:
+  push:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: run a sample action
+        run: echo hello world
