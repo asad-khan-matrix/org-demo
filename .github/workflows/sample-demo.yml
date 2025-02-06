@@ -15,4 +15,18 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
-          path: ${{github.workspace}}
+          path: ${{ github.workspace }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+
+      - name: Deploy to server
+        run: |
+          echo "Deploying to server..."
+          # Add your deployment commands here
+          # For example, using SSH to deploy:
+          # ssh user@your-server "cd /path/to/app && git pull && npm install && pm2 restart app"
